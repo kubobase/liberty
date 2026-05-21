@@ -268,7 +268,7 @@
         ctx.fill();
 
         const L = 16 * fp, S = 5 * fp;
-        ctx.strokeStyle = `rgba(243,241,235,${fa})`;
+        ctx.strokeStyle = `rgba(27,45,69,${fa * 0.85})`;
         ctx.lineWidth = 0.9;
         [[0], [90]].forEach(([deg]) => {
             const r = deg * Math.PI / 180;
@@ -287,7 +287,7 @@
 
         ctx.beginPath();
         ctx.arc(0, 0, 2 * fp, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(243,241,235,${fa})`;
+        ctx.fillStyle = `rgba(27,45,69,${fa * 0.85})`;
         ctx.fill();
         ctx.restore();
     };
