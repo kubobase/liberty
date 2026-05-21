@@ -3,395 +3,967 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>liberty | SNS運用代行・AIコンサルティング・DX支援</title>
-    <meta name="description" content="libertyは、SNS運用代行・AIコンサルティング・DX支援を通じて、企業の次世代ビジネスを加速させます。">
+    <title>Liberty | やりたいを形に、一歩を踏み出す勇気をあなたへ</title>
+    <meta name="description" content="Libertyは、人との繋がりから可能性を広げ、やりたいを形にするブランドです。SNS運用・ホームページ制作・AI活用支援など、あなたの挑戦を共に後押しします。">
+    <meta name="keywords" content="Liberty, SNS運用, ホームページ制作, AI活用, デザイン制作, 業務効率化, 東京">
+    <meta property="og:title" content="Liberty | やりたいを形に、一歩を踏み出す勇気をあなたへ">
+    <meta property="og:description" content="人との繋がりから可能性を広げ、やりたいを形にするブランド。">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
 
-    <div class="noise"></div>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
 
+    <!-- Loading screen -->
+    <div class="loader" id="loader">
+        <div class="loader-inner">
+            <svg class="loader-logo" viewBox="0 0 60 60" fill="none">
+                <circle cx="30" cy="30" r="1.5" fill="#c9a66b"/>
+                <line x1="30" y1="4" x2="30" y2="56" stroke="#c9a66b" stroke-width="0.6" stroke-dasharray="52" stroke-dashoffset="52" class="loader-line-v"/>
+                <line x1="4" y1="30" x2="56" y2="30" stroke="#c9a66b" stroke-width="0.6" stroke-dasharray="52" stroke-dashoffset="52" class="loader-line-h"/>
+                <line x1="11.5" y1="11.5" x2="48.5" y2="48.5" stroke="#c9a66b" stroke-width="0.4" opacity="0.4" stroke-dasharray="52" stroke-dashoffset="52" class="loader-line-d1"/>
+                <line x1="48.5" y1="11.5" x2="11.5" y2="48.5" stroke="#c9a66b" stroke-width="0.4" opacity="0.4" stroke-dasharray="52" stroke-dashoffset="52" class="loader-line-d2"/>
+            </svg>
+            <span class="loader-text">Liberty</span>
+        </div>
+    </div>
+
+    <!-- Header -->
     <header class="header" id="header">
         <nav class="nav container">
-            <a href="#" class="logo">
-                <span class="logo-mark">/</span>
-                <span class="logo-text">liberty</span>
+            <a href="index.html#top" class="logo" aria-label="Liberty">
+                <img src="%E7%94%BB%E5%83%8F.png" class="logo-icon" alt="">
+                <span class="logo-text">Liberty</span>
             </a>
-            <ul class="nav-menu">
-                <li><a href="#about" class="nav-link"><span class="nav-num">01</span> About</a></li>
-                <li><a href="#services" class="nav-link"><span class="nav-num">02</span> Services</a></li>
-                <li><a href="#team" class="nav-link"><span class="nav-num">03</span> Team</a></li>
-                <li><a href="#contact" class="nav-link"><span class="nav-num">04</span> Contact</a></li>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#concept" class="nav-link">コンセプト</a></li>
+                <li><a href="#service" class="nav-link">サービス</a></li>
+                <li><a href="#results" class="nav-link">実績</a></li>
+                <li><a href="#pricing" class="nav-link">料金</a></li>
+                <li><a href="philosophy.html" class="nav-link">理念</a></li>
+                <li><a href="message.html" class="nav-link">メッセージ</a></li>
+                <li><a href="#contact" class="nav-link nav-link--cta">お問い合わせ</a></li>
             </ul>
-            <button class="menu-toggle" aria-label="Menu">
-                <span></span>
-                <span></span>
+            <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
             </button>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-bg">
-            <div class="grid-overlay"></div>
+    <!-- ① TOP -->
+    <section class="hero" id="top">
+        <canvas class="hero-canvas" id="heroCanvas"></canvas>
+        <div class="hero-grid-overlay"></div>
+        <img src="%E7%94%BB%E5%83%8F.png" class="hero-watermark" alt="">
+
+        <!-- Decorative rings -->
+        <div class="hero-deco hero-deco--ring1" aria-hidden="true"></div>
+        <div class="hero-deco hero-deco--ring2" aria-hidden="true"></div>
+        <div class="hero-deco hero-deco--cross" aria-hidden="true">
+            <svg viewBox="0 0 60 60" fill="none">
+                <line x1="30" y1="0" x2="30" y2="60" stroke="rgba(201,166,107,0.25)" stroke-width="0.6"/>
+                <line x1="0" y1="30" x2="60" y2="30" stroke="rgba(201,166,107,0.25)" stroke-width="0.6"/>
+                <circle cx="30" cy="30" r="2" fill="rgba(201,166,107,0.5)"/>
+            </svg>
         </div>
-        <div class="container hero-inner">
-            <div class="hero-meta">
-                <span class="line"></span>
-                <span class="hero-tagline">EST. 2026 — TOKYO</span>
+
+        <div class="container hero-content">
+            <div class="hero-eyebrow reveal-up" style="--delay:0.2s">
+                <span class="eyebrow-line"></span>
+                <span class="eyebrow-text">EST. 2026 — TOKYO, JAPAN</span>
             </div>
             <h1 class="hero-title">
-                <span class="hero-line"><span>Beyond</span></span>
-                <span class="hero-line"><span class="hero-italic">the</span> <span>Standard.</span></span>
-                <span class="hero-line hero-sub-jp"><span>常識を、再定義する。</span></span>
+                <span class="hero-word"><span>やりたいを</span></span>
+                <span class="hero-word"><span>形に。</span></span>
+                <span class="hero-word hero-word--sub"><span>一歩を踏み出す勇気を、あなたへ。</span></span>
             </h1>
-            <p class="hero-description">
-                SNS運用、AI活用、DX推進——<br>
-                私たちは、ビジネスの可能性を解き放つ<br>パートナーです。
+            <p class="hero-desc reveal-up" style="--delay:1.2s">
+                人との繋がりの中に、可能性はある。<br>
+                出会いが世界を広げ、想いが形になる。<br>
+                その一歩を、共に。
             </p>
-            <div class="hero-cta">
-                <a href="#contact" class="btn-primary">
-                    <span>Get in Touch</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <line x1="5" y1="12" x2="19" y2="12"/>
-                        <polyline points="12 5 19 12 12 19"/>
-                    </svg>
+            <div class="hero-actions reveal-up" style="--delay:1.5s">
+                <a href="#contact" class="btn btn--gold">
+                    <span>はじめる</span>
+                    <svg viewBox="0 0 20 20" fill="none"><line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.2"/><polyline points="10 4 16 10 10 16" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
                 </a>
-                <a href="#services" class="btn-secondary">
-                    <span>View Services</span>
+                <a href="#concept" class="btn btn--ghost">
+                    <span>世界観を知る</span>
                 </a>
             </div>
-            <div class="hero-scroll">
-                <span>SCROLL</span>
-                <div class="scroll-line"></div>
-            </div>
         </div>
-        <div class="hero-side">
-            <div class="side-text">LIBERTY / 01 — INTRODUCTION</div>
+        <div class="hero-scroll-indicator">
+            <span class="scroll-label">SCROLL</span>
+            <div class="scroll-bar"><div class="scroll-bar-inner"></div></div>
         </div>
+        <div class="hero-side-text">LIBERTY / 2026 / TOKYO</div>
     </section>
 
-    <section class="marquee">
-        <div class="marquee-inner">
-            <span>SNS MANAGEMENT</span><span class="dot">●</span>
-            <span>AI CONSULTING</span><span class="dot">●</span>
-            <span>DX SUPPORT</span><span class="dot">●</span>
-            <span>BRAND STRATEGY</span><span class="dot">●</span>
-            <span>SNS MANAGEMENT</span><span class="dot">●</span>
-            <span>AI CONSULTING</span><span class="dot">●</span>
-            <span>DX SUPPORT</span><span class="dot">●</span>
-            <span>BRAND STRATEGY</span><span class="dot">●</span>
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>CONNECT</span><span class="sep">—</span>
+            <span>EXPAND</span><span class="sep">—</span>
+            <span>CONVERGE</span><span class="sep">—</span>
+            <span>CREATE</span><span class="sep">—</span>
+            <span>TRUST</span><span class="sep">—</span>
+            <span>FREEDOM</span><span class="sep">—</span>
+            <span>CONNECT</span><span class="sep">—</span>
+            <span>EXPAND</span><span class="sep">—</span>
+            <span>CONVERGE</span><span class="sep">—</span>
+            <span>CREATE</span><span class="sep">—</span>
+            <span>TRUST</span><span class="sep">—</span>
+            <span>FREEDOM</span><span class="sep">—</span>
         </div>
-    </section>
+    </div>
 
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-head">
-                <span class="section-num">01 / About</span>
-                <h2 class="section-title">
-                    <span>自由な発想で、</span><br>
-                    <span class="italic">未来を設計する。</span>
-                </h2>
+    <!-- ② CONCEPT -->
+    <section class="concept" id="concept">
+        <!-- Decorative orbs -->
+        <div class="orb orb--gold" style="top:10%;right:-8%;width:420px;height:420px;" aria-hidden="true"></div>
+        <div class="orb orb--navy" style="bottom:5%;left:-10%;width:360px;height:360px;" aria-hidden="true"></div>
+
+        <div class="container" style="position:relative;z-index:1;">
+            <div class="section-label reveal-up">
+                <span class="label-num">01</span>
+                <span class="label-text">Concept</span>
             </div>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p class="about-lead">
-                        liberty は、デジタルとクリエイティブの境界を超え、<br>
-                        企業の成長を本質から支援する戦略パートナーです。
-                    </p>
-                    <p>
-                        SNS運用代行による"届く"コミュニケーション設計、AIコンサルティングによる業務変革、DX支援による組織の進化。私たちは、それぞれの領域を横断しながら、クライアントの未来を共に描きます。
-                    </p>
-                    <p>
-                        "liberty" — その名の通り、固定観念から自由になり、新しい価値を生み出す。それが私たちの哲学です。
-                    </p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat">
-                        <div class="stat-num"><span class="counter" data-target="100">0</span><span>%</span></div>
-                        <div class="stat-label">Client First</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-num"><span class="counter" data-target="3">0</span></div>
-                        <div class="stat-label">Core Services</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-num"><span class="counter" data-target="24">0</span><span>/7</span></div>
-                        <div class="stat-label">Dedicated Support</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-num">∞</div>
-                        <div class="stat-label">Possibilities</div>
+            <div class="concept-layout">
+                <div class="concept-text">
+                    <h2 class="section-heading reveal-up">
+                        拡散と集約、<br>
+                        <em>希望へとつながる。</em>
+                    </h2>
+                    <div class="concept-body reveal-up">
+                        <p class="concept-lead">
+                            Libertyとは、縛られない自由ではない。
+                        </p>
+                        <p>
+                            人との出会いによって世界が広がり、<br>
+                            多様な価値観や個性が繋がり、<br>
+                            想いや信頼が集まっていく。
+                        </p>
+                        <p>
+                            その先に、<em>希望という光がある。</em>
+                        </p>
+                        <p>
+                            自分らしい人生を形にしていくこと。<br>
+                            それが、私たちの考えるLiberty。
+                        </p>
                     </div>
                 </div>
+                <div class="concept-visual reveal-up" style="--delay:0.3s">
+                    <div class="concept-diagram">
+                        <canvas id="conceptCanvas" class="concept-canvas"></canvas>
+                        <div class="diagram-label diagram-label--expand">拡散</div>
+                        <div class="diagram-label diagram-label--converge">集約</div>
+                        <div class="diagram-label diagram-label--hope">Hope</div>
+                    </div>
+                </div>
+            </div>
+            <div class="concept-values">
+                <div class="value-item reveal-up" style="--delay:0.1s">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="2" fill="#c9a66b"/>
+                            <circle cx="8" cy="10" r="1.2" fill="#8fa0b3" opacity="0.5"/>
+                            <circle cx="24" cy="10" r="1.2" fill="#8fa0b3" opacity="0.5"/>
+                            <circle cx="6" cy="22" r="1.2" fill="#8fa0b3" opacity="0.5"/>
+                            <circle cx="26" cy="22" r="1.2" fill="#8fa0b3" opacity="0.5"/>
+                            <line x1="16" y1="16" x2="8" y2="10" stroke="#c9a66b" stroke-width="0.7" opacity="0.6"/>
+                            <line x1="16" y1="16" x2="24" y2="10" stroke="#c9a66b" stroke-width="0.7" opacity="0.6"/>
+                            <line x1="16" y1="16" x2="6" y2="22" stroke="#c9a66b" stroke-width="0.7" opacity="0.6"/>
+                            <line x1="16" y1="16" x2="26" y2="22" stroke="#c9a66b" stroke-width="0.7" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <span class="value-num">—</span>
+                    <span class="value-word">人との繋がり</span>
+                </div>
+                <div class="value-item reveal-up" style="--delay:0.2s">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 32 32" fill="none">
+                            <path d="M16 6 L26 26 L6 26 Z" stroke="#c9a66b" stroke-width="0.8" fill="none" opacity="0.7"/>
+                            <circle cx="16" cy="13" r="1.5" fill="#c9a66b"/>
+                            <line x1="16" y1="15" x2="16" y2="23" stroke="#c9a66b" stroke-width="0.6" opacity="0.5"/>
+                        </svg>
+                    </div>
+                    <span class="value-num">—</span>
+                    <span class="value-word">出会いと挑戦</span>
+                </div>
+                <div class="value-item reveal-up" style="--delay:0.3s">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 32 32" fill="none">
+                            <rect x="7" y="7" width="18" height="18" stroke="#c9a66b" stroke-width="0.8" fill="none" opacity="0.6"/>
+                            <rect x="11" y="11" width="10" height="10" fill="#c9a66b" opacity="0.15"/>
+                            <circle cx="16" cy="16" r="2" fill="#c9a66b"/>
+                        </svg>
+                    </div>
+                    <span class="value-num">—</span>
+                    <span class="value-word">可能性と信頼</span>
+                </div>
+                <div class="value-item reveal-up" style="--delay:0.4s">
+                    <div class="value-icon">
+                        <svg viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="9" stroke="#c9a66b" stroke-width="0.8" fill="none" opacity="0.5"/>
+                            <circle cx="16" cy="16" r="5" stroke="#c9a66b" stroke-width="0.5" fill="none" opacity="0.3"/>
+                            <circle cx="16" cy="16" r="2.5" fill="#c9a66b"/>
+                        </svg>
+                    </div>
+                    <span class="value-num">—</span>
+                    <span class="value-word">想いと希望</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-head">
-                <span class="section-num">02 / Services</span>
-                <h2 class="section-title">
-                    <span>3つの専門領域で、</span><br>
-                    <span class="italic">ビジネスを加速する。</span>
+    <!-- ③ SERVICE -->
+    <section class="service" id="service">
+        <div class="service-bg-num" aria-hidden="true">SERVICE</div>
+        <div class="container" style="position:relative;z-index:1;">
+            <div class="section-label reveal-up">
+                <span class="label-num">02</span>
+                <span class="label-text">Service</span>
+            </div>
+            <div class="service-heading-block">
+                <h2 class="section-heading reveal-up">
+                    あなたの挑戦を、<br>
+                    <em>共に形にする。</em>
                 </h2>
-            </div>
-            <div class="services-list">
-                <article class="service-item" data-index="01">
-                    <div class="service-num">01</div>
-                    <div class="service-body">
-                        <h3 class="service-title">SNS運用代行</h3>
-                        <p class="service-en">SNS Management</p>
-                        <p class="service-desc">
-                            ブランドの世界観を再構築し、共感を呼ぶコンテンツを設計。Instagram、X、TikTok、YouTubeなど、各プラットフォームの特性を活かした戦略的運用で、ファンとの長期的な関係を構築します。
-                        </p>
-                        <ul class="service-tags">
-                            <li>Strategy</li>
-                            <li>Content</li>
-                            <li>Analytics</li>
-                            <li>Influencer</li>
-                        </ul>
-                    </div>
-                    <div class="service-arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                            <line x1="5" y1="12" x2="19" y2="12"/>
-                            <polyline points="12 5 19 12 12 19"/>
-                        </svg>
-                    </div>
-                </article>
-
-                <article class="service-item" data-index="02">
-                    <div class="service-num">02</div>
-                    <div class="service-body">
-                        <h3 class="service-title">AIコンサルティング</h3>
-                        <p class="service-en">AI Consulting</p>
-                        <p class="service-desc">
-                            最新のAI技術を、実務に活きる形で導入支援。生成AIの活用設計、業務プロセスの自動化、データドリブンな意思決定の仕組みづくりまで、企業のAIトランスフォーメーションを伴走支援します。
-                        </p>
-                        <ul class="service-tags">
-                            <li>Generative AI</li>
-                            <li>Automation</li>
-                            <li>Data Strategy</li>
-                            <li>Training</li>
-                        </ul>
-                    </div>
-                    <div class="service-arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                            <line x1="5" y1="12" x2="19" y2="12"/>
-                            <polyline points="12 5 19 12 12 19"/>
-                        </svg>
-                    </div>
-                </article>
-
-                <article class="service-item" data-index="03">
-                    <div class="service-num">03</div>
-                    <div class="service-body">
-                        <h3 class="service-title">DX支援</h3>
-                        <p class="service-en">Digital Transformation</p>
-                        <p class="service-desc">
-                            デジタル化の先にある、ビジネスモデルの変革を支援。業務改善、システム導入、組織開発まで、テクノロジーを「使う」だけでなく、「価値を生む」DXを実現します。
-                        </p>
-                        <ul class="service-tags">
-                            <li>Process</li>
-                            <li>System</li>
-                            <li>Organization</li>
-                            <li>Culture</li>
-                        </ul>
-                    </div>
-                    <div class="service-arrow">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                            <line x1="5" y1="12" x2="19" y2="12"/>
-                            <polyline points="12 5 19 12 12 19"/>
-                        </svg>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="team" id="team">
-        <div class="container">
-            <div class="section-head">
-                <span class="section-num">03 / Team</span>
-                <h2 class="section-title">
-                    <span>The People</span><br>
-                    <span class="italic">behind liberty.</span>
-                </h2>
-            </div>
-            <div class="team-grid">
-                <article class="member">
-                    <div class="member-image">
-                        <div class="member-placeholder">
-                            <span class="initial">S.O</span>
-                        </div>
-                        <div class="member-tag">CEO</div>
-                    </div>
-                    <div class="member-info">
-                        <div class="member-role">Representative Director</div>
-                        <h3 class="member-name">
-                            <span class="name-jp">大久保 翔太</span>
-                            <span class="name-en">Shota Okubo</span>
-                        </h3>
-                        <p class="member-bio">
-                            「自由とは、選択肢を創ること」。事業を通じて、関わるすべての人に新しい可能性を届ける。
-                        </p>
-                    </div>
-                </article>
-
-                <article class="member">
-                    <div class="member-image">
-                        <div class="member-placeholder">
-                            <span class="initial">Y.O</span>
-                        </div>
-                        <div class="member-tag">Manager</div>
-                    </div>
-                    <div class="member-info">
-                        <div class="member-role">Operations Manager</div>
-                        <h3 class="member-name">
-                            <span class="name-jp">大谷内 悠華</span>
-                            <span class="name-en">Haruka Otaniuchi</span>
-                        </h3>
-                        <p class="member-bio">
-                            「細部に、誠実を宿す」。クライアントの想いを汲み取り、プロジェクトを確かな成果へと導く。
-                        </p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="philosophy">
-        <div class="container">
-            <div class="philosophy-inner">
-                <span class="philosophy-mark">"</span>
-                <p class="philosophy-quote">
-                    <span>枠を超えろ。</span><br>
-                    <span class="italic">境界線の、その先へ。</span>
+                <p class="service-heading-sub reveal-up">
+                    何ができるかではなく、何を実現したいか。<br>
+                    その想いから、すべてははじまる。
                 </p>
-                <p class="philosophy-sub">Cross the line. Beyond the boundary.</p>
+            </div>
+            <div class="svc-cards-wrap">
+                <canvas class="svc-canvas-bg" id="serviceCanvas"></canvas>
+                <div class="svc-grid">
+
+                    <article class="svc-card reveal-up" data-svc-idx="0" style="--delay:0.05s">
+                        <span class="svc-num-badge">01</span>
+                        <div class="svc-star" aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <line x1="24" y1="4" x2="24" y2="44" stroke="#c9a66b" stroke-width="0.6" opacity="0.35"/>
+                                <line x1="4" y1="24" x2="44" y2="24" stroke="#c9a66b" stroke-width="0.6" opacity="0.35"/>
+                                <line x1="10" y1="10" x2="38" y2="38" stroke="#c9a66b" stroke-width="0.4" opacity="0.18"/>
+                                <line x1="38" y1="10" x2="10" y2="38" stroke="#c9a66b" stroke-width="0.4" opacity="0.18"/>
+                                <circle cx="24" cy="24" r="10" stroke="#c9a66b" stroke-width="0.4" fill="none" opacity="0.12"/>
+                                <circle cx="24" cy="24" r="3" fill="#c9a66b"/>
+                            </svg>
+                        </div>
+                        <span class="svc-category">SNS</span>
+                        <div class="svc-icon" aria-hidden="true">
+                            <svg viewBox="0 0 56 56" fill="none">
+                                <circle cx="28" cy="28" r="4" fill="#c9a66b" opacity="0.85"/>
+                                <circle cx="9"  cy="18" r="3"   stroke="#c9a66b" stroke-width="0.8" fill="none" opacity="0.5"/>
+                                <circle cx="47" cy="18" r="3"   stroke="#c9a66b" stroke-width="0.8" fill="none" opacity="0.5"/>
+                                <circle cx="9"  cy="38" r="3"   stroke="#c9a66b" stroke-width="0.8" fill="none" opacity="0.5"/>
+                                <circle cx="47" cy="38" r="3"   stroke="#c9a66b" stroke-width="0.8" fill="none" opacity="0.5"/>
+                                <circle cx="28" cy="7"  r="2.5" stroke="#c9a66b" stroke-width="0.7" fill="none" opacity="0.35"/>
+                                <line x1="28" y1="32" x2="9"  y2="35" stroke="#c9a66b" stroke-width="0.6" opacity="0.4"/>
+                                <line x1="28" y1="32" x2="47" y2="35" stroke="#c9a66b" stroke-width="0.6" opacity="0.4"/>
+                                <line x1="28" y1="24" x2="9"  y2="21" stroke="#c9a66b" stroke-width="0.6" opacity="0.4"/>
+                                <line x1="28" y1="24" x2="47" y2="21" stroke="#c9a66b" stroke-width="0.6" opacity="0.4"/>
+                                <line x1="28" y1="24" x2="28" y2="10" stroke="#c9a66b" stroke-width="0.5" opacity="0.3"/>
+                                <circle cx="28" cy="28" r="17" stroke="#c9a66b" stroke-width="0.35" fill="none" opacity="0.08"/>
+                            </svg>
+                        </div>
+                        <h3 class="svc-name">SNS運用</h3>
+                        <p class="svc-name-en">Social Media Management</p>
+                        <p class="svc-desc">ブランドの世界観を言葉と映像で設計し、共感を呼ぶコンテンツを継続的に届ける。Instagram・X・TikTok・YouTubeなど、各プラットフォームの文脈に合わせた戦略的運用。</p>
+                    </article>
+
+                    <article class="svc-card reveal-up" data-svc-idx="1" style="--delay:0.1s">
+                        <span class="svc-num-badge">02</span>
+                        <div class="svc-star" aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <line x1="24" y1="4" x2="24" y2="44" stroke="#c9a66b" stroke-width="0.6" opacity="0.35"/>
+                                <line x1="4" y1="24" x2="44" y2="24" stroke="#c9a66b" stroke-width="0.6" opacity="0.35"/>
+                                <line x1="10" y1="10" x2="38" y2="38" stroke="#c9a66b" stroke-width="0.4" opacity="0.18"/>
+                                <line x1="38" y1="10" x2="10" y2="38" stroke="#c9a66b" stroke-width="0.4" opacity="0.18"/>
+                                <circle cx="24" cy="24" r="10" stroke="#c9a66b" stroke-width="0.4" fill="none" opacity="0.12"/>
+                                <circle cx="24" cy="24" r="3" fill="#c9a66b"/>
+                            </svg>
+                        </div>
+                        <span class="svc-category">VIDEO</span>
+                        <div class="svc-icon" aria-hidden="true">
+                            <svg viewBox="0 0 56 56" fill="none">
+                                <rect x="7" y="15" width="27" height="22" rx="3" stroke="#c9a66b" stroke-width="0.8" opacity="0.5"/>
+                                <path d="M34 22 L50 15 L50 41 L34 34 Z" stroke="#c9a66b" stroke-width="0.8" fill="none" opacity="0.4"/>
+                                <circle cx="20" cy="26" r="6" stroke="#c9a66b" stroke-width="0.5" fill="none" opacity="0.2"/>
+                                <polygon points="17,23 17,29 24,26" fill="#c9a66b" opacity="0.55"/>
+                            </svg>
+                        </div>
+                        <h3 class="svc-name">ショート動画制作</h3>
+                        <p class="svc-name-en">Short Video Production</p>
+                        <p class="svc-desc">数秒で心を掴む動画を設計する。企画・撮影・編集まで一貫して対応。リール・ショート・TikTokなど、拡散するフォーマットで届ける。</p>
+                    </article>
+
+                    <article class="svc-card reveal-up" data-svc-idx="2" style="--delay:0.15s">
+                        <span class="svc-num-badge">03</span>
+                        <div class="svc-star" aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <line x1="24" y1="4" x2="24" y2="44" stroke="#c9a66b" stroke-width="0.6" opacity="0.35"/>
+                                <line x1="4" y1="24" x2="44" y2="24" stroke="#c9a66b" stroke-width="0.6" opacity="0.35"/>
+                                <line x1="10" y1="10" x2="38" y2="38" stroke="#c9a66b" stroke-width="0.4" opacity="0.18"/>
+                                <line x1="38" y1="10" x2="10" y2="38" stroke="#c9a66b" stroke-width="0.4" opacity="0.18"/>
+                                <circle cx="24" cy="24" r="10" stroke="#c9a66b" stroke-width="0.4" fill="none" opacity="0.12"/>
+                                <circle cx="24" cy="24" r="3" fill="#c9a66b"/>
+                            </svg>
+                        </div>
+                        <span class="svc-category">WEB</span>
+                        <div class="svc-icon" aria-hidden="true">
+                            <svg viewBox="0 0 56 56" fill="none">
+                                <rect x="5" y="10" width="46" height="36" rx="3" stroke="#c9a66b" stroke-width="0.8" opacity="0.5"/>
+                                <line x1="5" y1="21" x2="51" y2="21" stroke="#c9a66b" stroke-width="0.6" opacity="0.4"/>
+                                <circle cx="12" cy="16" r="1.8" fill="#c9a66b" opacity="0.5"/>
+                                <circle cx="18" cy="16" r="1.8" fill="#c9a66b" opacity="0.3"/>
+                                <circle cx="24" cy="16" r="1.8" fill="#c9a66b" opacity="0.15"/>
+                                <rect x="12" y="29" width="32" height="3" rx="1.5" fill="#c9a66b" opacity="0.2"/>
+                                <rect x="12" y="36" width="22" height="2.5" rx="1.25" fill="#c9a66b" opacity="0.13"/>
+                                <rect x="12" y="42" width="28" height="2.5" rx="1.25" fill="#c9a66b" opacity="0.09"/>
+                            </svg>
+                        </div>
+                        <h3 class="svc-name">ホームページ制作</h3>
+                        <p class="svc-name-en">Website Creation</p>
+                        <p class="svc-desc">ブランドの価値観を余白で語るウェブサイトを設計・実装する。UI/UX設計、スマートフォン最適化、SEO対策まで、あなたの想いを画面に宿す。</p>
+                    </article>
+
+                    <article class="svc-card reveal-up" data-svc-idx="3" style="--delay:0.2s">
+                        <span class="svc-num-badge">04</span>
+                        <div class="svc-star" aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <line x1="24" y1="4" x2="24" y2="44" stroke="#c9a66b" stroke-width="0.6" opacity="0.35"/>
+                                <line x1="4" y1="24" x2="44" y2="24" stroke="#c9a66b" stroke-width="0.6" opacity="0.35"/>
+                                <line x1="10" y1="10" x2="38" y2="38" stroke="#c9a66b" stroke-width="0.4" opacity="0.18"/>
+                                <line x1="38" y1="10" x2="10" y2="38" stroke="#c9a66b" stroke-width="0.4" opacity="0.18"/>
+                                <circle cx="24" cy="24" r="10" stroke="#c9a66b" stroke-width="0.4" fill="none" opacity="0.12"/>
+                                <circle cx="24" cy="24" r="3" fill="#c9a66b"/>
+                            </svg>
+                        </div>
+                        <span class="svc-category">DESIGN</span>
+                        <div class="svc-icon" aria-hidden="true">
+                            <svg viewBox="0 0 56 56" fill="none">
+                                <path d="M28 6 L48 48 L8 48 Z" stroke="#c9a66b" stroke-width="0.8" fill="none" opacity="0.4"/>
+                                <path d="M28 20 L40 46 L16 46 Z" fill="#c9a66b" opacity="0.05"/>
+                                <circle cx="28" cy="25" r="5" stroke="#c9a66b" stroke-width="0.7" fill="none" opacity="0.45"/>
+                                <circle cx="28" cy="25" r="2" fill="#c9a66b" opacity="0.7"/>
+                                <line x1="22" y1="50" x2="34" y2="50" stroke="#c9a66b" stroke-width="0.8" opacity="0.3" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="svc-name">デザイン制作</h3>
+                        <p class="svc-name-en">Design Production</p>
+                        <p class="svc-desc">ロゴ、名刺、バナー、資料など、ブランドのあらゆる接点をデザインする。「センスがある」と言われるデザインは、哲学から生まれる。</p>
+                    </article>
+
+                    <article class="svc-card reveal-up" data-svc-idx="4" style="--delay:0.25s">
+                        <span class="svc-num-badge">05</span>
+                        <div class="svc-star" aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <line x1="24" y1="4" x2="24" y2="44" stroke="#c9a66b" stroke-width="0.6" opacity="0.35"/>
+                                <line x1="4" y1="24" x2="44" y2="24" stroke="#c9a66b" stroke-width="0.6" opacity="0.35"/>
+                                <line x1="10" y1="10" x2="38" y2="38" stroke="#c9a66b" stroke-width="0.4" opacity="0.18"/>
+                                <line x1="38" y1="10" x2="10" y2="38" stroke="#c9a66b" stroke-width="0.4" opacity="0.18"/>
+                                <circle cx="24" cy="24" r="10" stroke="#c9a66b" stroke-width="0.4" fill="none" opacity="0.12"/>
+                                <circle cx="24" cy="24" r="3" fill="#c9a66b"/>
+                            </svg>
+                        </div>
+                        <span class="svc-category">AI</span>
+                        <div class="svc-icon" aria-hidden="true">
+                            <svg viewBox="0 0 56 56" fill="none">
+                                <rect x="15" y="15" width="26" height="26" rx="3" stroke="#c9a66b" stroke-width="0.8" opacity="0.45"/>
+                                <circle cx="28" cy="28" r="8" stroke="#c9a66b" stroke-width="0.7" fill="none" opacity="0.35"/>
+                                <circle cx="28" cy="28" r="3" fill="#c9a66b" opacity="0.8"/>
+                                <line x1="15" y1="28" x2="7"  y2="28" stroke="#c9a66b" stroke-width="0.7" opacity="0.4"/>
+                                <line x1="41" y1="28" x2="49" y2="28" stroke="#c9a66b" stroke-width="0.7" opacity="0.4"/>
+                                <line x1="28" y1="15" x2="28" y2="7"  stroke="#c9a66b" stroke-width="0.7" opacity="0.4"/>
+                                <line x1="28" y1="41" x2="28" y2="49" stroke="#c9a66b" stroke-width="0.7" opacity="0.4"/>
+                                <circle cx="7"  cy="28" r="2.2" fill="#c9a66b" opacity="0.4"/>
+                                <circle cx="49" cy="28" r="2.2" fill="#c9a66b" opacity="0.4"/>
+                                <circle cx="28" cy="7"  r="2.2" fill="#c9a66b" opacity="0.4"/>
+                                <circle cx="28" cy="49" r="2.2" fill="#c9a66b" opacity="0.4"/>
+                            </svg>
+                        </div>
+                        <h3 class="svc-name">AI活用支援</h3>
+                        <p class="svc-name-en">AI Utilization Support</p>
+                        <p class="svc-desc">AIは道具に過ぎない。大切なのは、どう使いこなすか。生成AI・自動化ツールの導入から活用設計まで、実務に根ざした支援を行う。</p>
+                    </article>
+
+                    <article class="svc-card reveal-up" data-svc-idx="5" style="--delay:0.3s">
+                        <span class="svc-num-badge">06</span>
+                        <div class="svc-star" aria-hidden="true">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <line x1="24" y1="4" x2="24" y2="44" stroke="#c9a66b" stroke-width="0.6" opacity="0.35"/>
+                                <line x1="4" y1="24" x2="44" y2="24" stroke="#c9a66b" stroke-width="0.6" opacity="0.35"/>
+                                <line x1="10" y1="10" x2="38" y2="38" stroke="#c9a66b" stroke-width="0.4" opacity="0.18"/>
+                                <line x1="38" y1="10" x2="10" y2="38" stroke="#c9a66b" stroke-width="0.4" opacity="0.18"/>
+                                <circle cx="24" cy="24" r="10" stroke="#c9a66b" stroke-width="0.4" fill="none" opacity="0.12"/>
+                                <circle cx="24" cy="24" r="3" fill="#c9a66b"/>
+                            </svg>
+                        </div>
+                        <span class="svc-category">OPS</span>
+                        <div class="svc-icon" aria-hidden="true">
+                            <svg viewBox="0 0 56 56" fill="none">
+                                <circle cx="28" cy="28" r="20" stroke="#c9a66b" stroke-width="0.7" fill="none" opacity="0.25"/>
+                                <path d="M28 8 A20 20 0 0 1 48 28" stroke="#c9a66b" stroke-width="1.4" opacity="0.65" fill="none" stroke-linecap="round"/>
+                                <polyline points="48 20 48 28 40 28" stroke="#c9a66b" stroke-width="1" opacity="0.55" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                <line x1="28" y1="18" x2="28" y2="28" stroke="#c9a66b" stroke-width="1.2" opacity="0.7" stroke-linecap="round"/>
+                                <line x1="28" y1="28" x2="37" y2="34" stroke="#c9a66b" stroke-width="1"   opacity="0.5" stroke-linecap="round"/>
+                                <circle cx="28" cy="28" r="3" fill="#c9a66b" opacity="0.85"/>
+                            </svg>
+                        </div>
+                        <h3 class="svc-name">業務効率化支援</h3>
+                        <p class="svc-name-en">Operational Efficiency</p>
+                        <p class="svc-desc">時間を生み出すことが、自由への近道だ。業務フローの見直し、ツール導入、仕組み化まで、チームの力を最大化する。</p>
+                    </article>
+
+                </div>
+            </div>
+            <div class="service-note reveal-up">
+                <p>ご相談は無料です。まず、あなたの想いを聴かせてください。</p>
+                <a href="#contact" class="btn btn--ghost btn--sm">
+                    <span>相談してみる</span>
+                    <svg viewBox="0 0 20 20" fill="none"><line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.2"/><polyline points="10 4 16 10 10 16" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+                </a>
             </div>
         </div>
     </section>
 
+    <!-- ④ RESULTS (実績) -->
+    <section class="results" id="results">
+        <div class="orb orb--gold" style="top:-5%;left:-5%;width:500px;height:500px;opacity:0.04;" aria-hidden="true"></div>
+        <div class="container" style="position:relative;z-index:1;">
+            <div class="section-label reveal-up">
+                <span class="label-num">03</span>
+                <span class="label-text">Results</span>
+            </div>
+            <div class="results-header">
+                <h2 class="section-heading reveal-up">
+                    積み重ねてきた、<br>
+                    <em>実績と信頼。</em>
+                </h2>
+                <p class="results-coming-note reveal-up">
+                    実績を準備中です。まもなく公開予定。
+                </p>
+            </div>
+            <div class="results-grid">
+                <div class="result-card reveal-up" style="--delay:0.05s">
+                    <div class="result-card-inner">
+                        <span class="result-tag">SNS運用</span>
+                        <span class="result-num">CASE 01</span>
+                        <div class="result-placeholder">
+                            <svg viewBox="0 0 80 60" fill="none">
+                                <rect x="5" y="5" width="70" height="50" rx="4" stroke="rgba(201,166,107,0.2)" stroke-width="1"/>
+                                <circle cx="40" cy="28" r="12" stroke="rgba(201,166,107,0.2)" stroke-width="1"/>
+                                <line x1="15" y1="45" x2="65" y2="45" stroke="rgba(201,166,107,0.12)" stroke-width="1"/>
+                                <line x1="25" y1="50" x2="55" y2="50" stroke="rgba(201,166,107,0.08)" stroke-width="1"/>
+                            </svg>
+                        </div>
+                        <h3 class="result-title">Coming Soon</h3>
+                        <p class="result-desc">実績掲載準備中</p>
+                        <span class="result-badge">準備中</span>
+                    </div>
+                </div>
+                <div class="result-card reveal-up" style="--delay:0.1s">
+                    <div class="result-card-inner">
+                        <span class="result-tag">動画制作</span>
+                        <span class="result-num">CASE 02</span>
+                        <div class="result-placeholder">
+                            <svg viewBox="0 0 80 60" fill="none">
+                                <rect x="5" y="5" width="70" height="50" rx="4" stroke="rgba(201,166,107,0.2)" stroke-width="1"/>
+                                <polygon points="32,20 55,30 32,40" stroke="rgba(201,166,107,0.25)" stroke-width="1" fill="rgba(201,166,107,0.05)"/>
+                            </svg>
+                        </div>
+                        <h3 class="result-title">Coming Soon</h3>
+                        <p class="result-desc">実績掲載準備中</p>
+                        <span class="result-badge">準備中</span>
+                    </div>
+                </div>
+                <div class="result-card reveal-up" style="--delay:0.15s">
+                    <div class="result-card-inner">
+                        <span class="result-tag">HP制作</span>
+                        <span class="result-num">CASE 03</span>
+                        <div class="result-placeholder">
+                            <svg viewBox="0 0 80 60" fill="none">
+                                <rect x="5" y="5" width="70" height="50" rx="4" stroke="rgba(201,166,107,0.2)" stroke-width="1"/>
+                                <line x1="5" y1="18" x2="75" y2="18" stroke="rgba(201,166,107,0.15)" stroke-width="1"/>
+                                <rect x="12" y="25" width="30" height="4" rx="2" fill="rgba(201,166,107,0.12)"/>
+                                <rect x="12" y="33" width="50" height="3" rx="1.5" fill="rgba(201,166,107,0.08)"/>
+                                <rect x="12" y="40" width="38" height="3" rx="1.5" fill="rgba(201,166,107,0.06)"/>
+                            </svg>
+                        </div>
+                        <h3 class="result-title">Coming Soon</h3>
+                        <p class="result-desc">実績掲載準備中</p>
+                        <span class="result-badge">準備中</span>
+                    </div>
+                </div>
+                <div class="result-card reveal-up" style="--delay:0.2s">
+                    <div class="result-card-inner">
+                        <span class="result-tag">デザイン</span>
+                        <span class="result-num">CASE 04</span>
+                        <div class="result-placeholder">
+                            <svg viewBox="0 0 80 60" fill="none">
+                                <rect x="5" y="5" width="70" height="50" rx="4" stroke="rgba(201,166,107,0.2)" stroke-width="1"/>
+                                <circle cx="40" cy="30" r="15" stroke="rgba(201,166,107,0.15)" stroke-width="1" fill="none"/>
+                                <polygon points="40,18 50,36 30,36" stroke="rgba(201,166,107,0.2)" stroke-width="1" fill="rgba(201,166,107,0.04)"/>
+                            </svg>
+                        </div>
+                        <h3 class="result-title">Coming Soon</h3>
+                        <p class="result-desc">実績掲載準備中</p>
+                        <span class="result-badge">準備中</span>
+                    </div>
+                </div>
+                <div class="result-card reveal-up" style="--delay:0.25s">
+                    <div class="result-card-inner">
+                        <span class="result-tag">AI活用</span>
+                        <span class="result-num">CASE 05</span>
+                        <div class="result-placeholder">
+                            <svg viewBox="0 0 80 60" fill="none">
+                                <rect x="5" y="5" width="70" height="50" rx="4" stroke="rgba(201,166,107,0.2)" stroke-width="1"/>
+                                <rect x="20" y="18" width="16" height="16" rx="2" stroke="rgba(201,166,107,0.2)" stroke-width="1"/>
+                                <rect x="44" y="18" width="16" height="16" rx="2" stroke="rgba(201,166,107,0.2)" stroke-width="1"/>
+                                <rect x="32" y="38" width="16" height="12" rx="2" stroke="rgba(201,166,107,0.15)" stroke-width="1"/>
+                                <line x1="28" y1="34" x2="40" y2="38" stroke="rgba(201,166,107,0.12)" stroke-width="0.8"/>
+                                <line x1="52" y1="34" x2="40" y2="38" stroke="rgba(201,166,107,0.12)" stroke-width="0.8"/>
+                            </svg>
+                        </div>
+                        <h3 class="result-title">Coming Soon</h3>
+                        <p class="result-desc">実績掲載準備中</p>
+                        <span class="result-badge">準備中</span>
+                    </div>
+                </div>
+                <div class="result-card reveal-up" style="--delay:0.3s">
+                    <div class="result-card-inner">
+                        <span class="result-tag">業務効率化</span>
+                        <span class="result-num">CASE 06</span>
+                        <div class="result-placeholder">
+                            <svg viewBox="0 0 80 60" fill="none">
+                                <rect x="5" y="5" width="70" height="50" rx="4" stroke="rgba(201,166,107,0.2)" stroke-width="1"/>
+                                <line x1="15" y1="45" x2="25" y2="30" stroke="rgba(201,166,107,0.2)" stroke-width="1"/>
+                                <line x1="25" y1="30" x2="40" y2="38" stroke="rgba(201,166,107,0.2)" stroke-width="1"/>
+                                <line x1="40" y1="38" x2="55" y2="18" stroke="rgba(201,166,107,0.2)" stroke-width="1"/>
+                                <line x1="55" y1="18" x2="65" y2="22" stroke="rgba(201,166,107,0.2)" stroke-width="1"/>
+                                <circle cx="15" cy="45" r="2" fill="rgba(201,166,107,0.3)"/>
+                                <circle cx="40" cy="38" r="2" fill="rgba(201,166,107,0.3)"/>
+                                <circle cx="55" cy="18" r="2" fill="rgba(201,166,107,0.5)"/>
+                            </svg>
+                        </div>
+                        <h3 class="result-title">Coming Soon</h3>
+                        <p class="result-desc">実績掲載準備中</p>
+                        <span class="result-badge">準備中</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⑤ PRICING (料金) -->
+    <section class="pricing" id="pricing">
+        <div class="pricing-bg-deco" aria-hidden="true"></div>
+        <div class="container" style="position:relative;z-index:1;">
+            <div class="section-label reveal-up">
+                <span class="label-num">04</span>
+                <span class="label-text">Pricing</span>
+            </div>
+            <div class="pricing-header">
+                <h2 class="section-heading reveal-up">
+                    透明な料金で、<br>
+                    <em>安心のスタートを。</em>
+                </h2>
+                <p class="pricing-sub reveal-up">
+                    各プランの詳細は準備中です。<br>まずはお気軽にご相談ください。
+                </p>
+            </div>
+            <div class="pricing-grid">
+                <div class="price-card reveal-up" style="--delay:0.1s">
+                    <div class="price-card-top">
+                        <span class="price-plan-label">Plan</span>
+                        <h3 class="price-plan-name">ライト</h3>
+                        <p class="price-plan-en">Light</p>
+                    </div>
+                    <ul class="price-features">
+                        <li>
+                            <svg viewBox="0 0 16 16" fill="none"><polyline points="2 8 6 12 14 4" stroke="#c9a66b" stroke-width="1.2" stroke-linecap="round"/></svg>
+                            SNS運用（月 × 8投稿）
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 16 16" fill="none"><polyline points="2 8 6 12 14 4" stroke="#c9a66b" stroke-width="1.2" stroke-linecap="round"/></svg>
+                            月次レポート
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 16 16" fill="none"><polyline points="2 8 6 12 14 4" stroke="#c9a66b" stroke-width="1.2" stroke-linecap="round"/></svg>
+                            月1回 オンラインMTG
+                        </li>
+                        <li class="price-feature--disabled">
+                            <svg viewBox="0 0 16 16" fill="none"><line x1="4" y1="8" x2="12" y2="8" stroke="rgba(77,100,128,0.5)" stroke-width="1.2" stroke-linecap="round"/></svg>
+                            ホームページ制作
+                        </li>
+                        <li class="price-feature--disabled">
+                            <svg viewBox="0 0 16 16" fill="none"><line x1="4" y1="8" x2="12" y2="8" stroke="rgba(77,100,128,0.5)" stroke-width="1.2" stroke-linecap="round"/></svg>
+                            AI活用支援
+                        </li>
+                    </ul>
+                    <div class="price-amount">
+                        <span class="price-label">月額料金</span>
+                        <span class="price-value">要相談</span>
+                    </div>
+                    <a href="#contact" class="btn btn--ghost btn--sm price-cta">
+                        <span>相談してみる</span>
+                        <svg viewBox="0 0 20 20" fill="none"><line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.2"/><polyline points="10 4 16 10 10 16" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+                    </a>
+                </div>
+
+                <div class="price-card price-card--featured reveal-up" style="--delay:0.2s">
+                    <div class="price-featured-badge">おすすめ</div>
+                    <div class="price-card-top">
+                        <span class="price-plan-label">Plan</span>
+                        <h3 class="price-plan-name">スタンダード</h3>
+                        <p class="price-plan-en">Standard</p>
+                    </div>
+                    <ul class="price-features">
+                        <li>
+                            <svg viewBox="0 0 16 16" fill="none"><polyline points="2 8 6 12 14 4" stroke="#c9a66b" stroke-width="1.2" stroke-linecap="round"/></svg>
+                            SNS運用（月 × 16投稿）
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 16 16" fill="none"><polyline points="2 8 6 12 14 4" stroke="#c9a66b" stroke-width="1.2" stroke-linecap="round"/></svg>
+                            ショート動画制作（月4本）
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 16 16" fill="none"><polyline points="2 8 6 12 14 4" stroke="#c9a66b" stroke-width="1.2" stroke-linecap="round"/></svg>
+                            ホームページ制作 or 保守
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 16 16" fill="none"><polyline points="2 8 6 12 14 4" stroke="#c9a66b" stroke-width="1.2" stroke-linecap="round"/></svg>
+                            デザイン制作（月2点）
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 16 16" fill="none"><polyline points="2 8 6 12 14 4" stroke="#c9a66b" stroke-width="1.2" stroke-linecap="round"/></svg>
+                            月次戦略MTG
+                        </li>
+                    </ul>
+                    <div class="price-amount">
+                        <span class="price-label">月額料金</span>
+                        <span class="price-value">要相談</span>
+                    </div>
+                    <a href="#contact" class="btn btn--gold btn--sm price-cta">
+                        <span>相談してみる</span>
+                        <svg viewBox="0 0 20 20" fill="none"><line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.2"/><polyline points="10 4 16 10 10 16" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+                    </a>
+                </div>
+
+                <div class="price-card reveal-up" style="--delay:0.3s">
+                    <div class="price-card-top">
+                        <span class="price-plan-label">Plan</span>
+                        <h3 class="price-plan-name">プレミアム</h3>
+                        <p class="price-plan-en">Premium</p>
+                    </div>
+                    <ul class="price-features">
+                        <li>
+                            <svg viewBox="0 0 16 16" fill="none"><polyline points="2 8 6 12 14 4" stroke="#c9a66b" stroke-width="1.2" stroke-linecap="round"/></svg>
+                            全サービス対応
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 16 16" fill="none"><polyline points="2 8 6 12 14 4" stroke="#c9a66b" stroke-width="1.2" stroke-linecap="round"/></svg>
+                            AI活用支援・導入設計
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 16 16" fill="none"><polyline points="2 8 6 12 14 4" stroke="#c9a66b" stroke-width="1.2" stroke-linecap="round"/></svg>
+                            業務効率化コンサル
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 16 16" fill="none"><polyline points="2 8 6 12 14 4" stroke="#c9a66b" stroke-width="1.2" stroke-linecap="round"/></svg>
+                            専任担当者アサイン
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 16 16" fill="none"><polyline points="2 8 6 12 14 4" stroke="#c9a66b" stroke-width="1.2" stroke-linecap="round"/></svg>
+                            週次MTG・優先対応
+                        </li>
+                    </ul>
+                    <div class="price-amount">
+                        <span class="price-label">月額料金</span>
+                        <span class="price-value">要相談</span>
+                    </div>
+                    <a href="#contact" class="btn btn--ghost btn--sm price-cta">
+                        <span>相談してみる</span>
+                        <svg viewBox="0 0 20 20" fill="none"><line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.2"/><polyline points="10 4 16 10 10 16" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+                    </a>
+                </div>
+            </div>
+            <p class="pricing-note reveal-up">
+                ※ 上記はプランの目安です。ご要望・ご予算に合わせて柔軟に対応いたします。まずはお気軽にご相談ください。
+            </p>
+        </div>
+    </section>
+
+    <!-- Philosophy & Message Page Links -->
+    <section class="page-teasers">
+        <div class="container">
+            <div class="teasers-grid">
+                <a href="philosophy.html" class="teaser-card reveal-up" style="--delay:0.1s">
+                    <div class="teaser-deco" aria-hidden="true">
+                        <svg viewBox="0 0 120 120" fill="none">
+                            <circle cx="60" cy="60" r="50" stroke="rgba(201,166,107,0.12)" stroke-width="1"/>
+                            <circle cx="60" cy="60" r="35" stroke="rgba(201,166,107,0.08)" stroke-width="1"/>
+                            <circle cx="60" cy="60" r="20" stroke="rgba(201,166,107,0.06)" stroke-width="1"/>
+                            <circle cx="60" cy="60" r="4" fill="rgba(201,166,107,0.4)"/>
+                        </svg>
+                    </div>
+                    <div class="teaser-content">
+                        <span class="teaser-label">理念</span>
+                        <h3 class="teaser-title">Philosophy</h3>
+                        <p class="teaser-desc">私たちが大切にしていること。<br>Libertyの哲学と4つの柱について。</p>
+                        <span class="teaser-link">
+                            詳細を見る
+                            <svg viewBox="0 0 20 20" fill="none"><line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.2"/><polyline points="10 4 16 10 10 16" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+                        </span>
+                    </div>
+                </a>
+                <a href="message.html" class="teaser-card reveal-up" style="--delay:0.2s">
+                    <div class="teaser-deco" aria-hidden="true">
+                        <svg viewBox="0 0 120 120" fill="none">
+                            <rect x="20" y="20" width="80" height="80" stroke="rgba(201,166,107,0.1)" stroke-width="1" fill="none"/>
+                            <rect x="35" y="35" width="50" height="50" stroke="rgba(201,166,107,0.07)" stroke-width="1" fill="none"/>
+                            <rect x="50" y="50" width="20" height="20" fill="rgba(201,166,107,0.12)"/>
+                        </svg>
+                    </div>
+                    <div class="teaser-content">
+                        <span class="teaser-label">想いを届ける</span>
+                        <h3 class="teaser-title">Message</h3>
+                        <p class="teaser-desc">代表からのメッセージ。<br>Libertyがここにある理由について。</p>
+                        <span class="teaser-link">
+                            詳細を見る
+                            <svg viewBox="0 0 20 20" fill="none"><line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.2"/><polyline points="10 4 16 10 10 16" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Members -->
+    <section class="members" id="members">
+        <div class="container">
+            <div class="section-label reveal-up">
+                <span class="label-num">—</span>
+                <span class="label-text">Members</span>
+            </div>
+            <div class="members-grid">
+                <div class="member-card reveal-up" style="--delay:0.1s">
+                    <div class="member-avatar" aria-hidden="true">
+                        <svg viewBox="0 0 80 80" fill="none">
+                            <circle cx="40" cy="40" r="38" stroke="rgba(201,166,107,0.2)" stroke-width="1"/>
+                            <circle cx="40" cy="32" r="14" stroke="rgba(201,166,107,0.3)" stroke-width="1" fill="rgba(201,166,107,0.04)"/>
+                            <path d="M12 68 Q40 52 68 68" stroke="rgba(201,166,107,0.25)" stroke-width="1" fill="none"/>
+                        </svg>
+                    </div>
+                    <span class="member-role">Representative</span>
+                    <p class="member-name">
+                        <ruby>大久保翔太<rt>おおくぼしょうた</rt></ruby>
+                    </p>
+                    <span class="member-title-en">代表</span>
+                </div>
+                <div class="member-card reveal-up" style="--delay:0.2s">
+                    <div class="member-avatar" aria-hidden="true">
+                        <svg viewBox="0 0 80 80" fill="none">
+                            <circle cx="40" cy="40" r="38" stroke="rgba(201,166,107,0.2)" stroke-width="1"/>
+                            <circle cx="40" cy="32" r="14" stroke="rgba(201,166,107,0.3)" stroke-width="1" fill="rgba(201,166,107,0.04)"/>
+                            <path d="M12 68 Q40 52 68 68" stroke="rgba(201,166,107,0.25)" stroke-width="1" fill="none"/>
+                        </svg>
+                    </div>
+                    <span class="member-role">Manager</span>
+                    <p class="member-name">
+                        <ruby>大谷内悠華<rt>おおやうちはるか</rt></ruby>
+                    </p>
+                    <span class="member-title-en">マネージャー</span>
+                </div>
+                <div class="member-card reveal-up" style="--delay:0.3s">
+                    <div class="member-avatar" aria-hidden="true">
+                        <svg viewBox="0 0 80 80" fill="none">
+                            <circle cx="40" cy="40" r="38" stroke="rgba(201,166,107,0.2)" stroke-width="1"/>
+                            <circle cx="40" cy="32" r="14" stroke="rgba(201,166,107,0.3)" stroke-width="1" fill="rgba(201,166,107,0.04)"/>
+                            <path d="M12 68 Q40 52 68 68" stroke="rgba(201,166,107,0.25)" stroke-width="1" fill="none"/>
+                        </svg>
+                    </div>
+                    <span class="member-role">Web Engineer</span>
+                    <p class="member-name">
+                        <ruby>山﨑元気<rt>やまざきげんき</rt></ruby>
+                    </p>
+                    <span class="member-title-en">Webエンジニア</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⑤ VISION -->
+    <section class="vision" id="vision">
+        <canvas class="vision-canvas" id="visionCanvas"></canvas>
+        <div class="container" style="position:relative;z-index:1;">
+            <div class="section-label reveal-up">
+                <span class="label-num">05</span>
+                <span class="label-text">Vision</span>
+            </div>
+            <div class="vision-statement reveal-up">
+                <h2>
+                    挑戦する人が<br>
+                    <em>報われる世界を、</em><br>
+                    つくる。
+                </h2>
+            </div>
+            <div class="vision-sub reveal-up">
+                <p>
+                    ひとりひとりの挑戦が、<br>
+                    誰かの勇気になる。<br>
+                    その連鎖が、世界を動かす。
+                </p>
+                <p>
+                    Libertyは、その連鎖の起点になりたい。
+                </p>
+            </div>
+            <div class="vision-cta reveal-up">
+                <a href="#contact" class="btn btn--gold">
+                    <span>一歩を踏み出す</span>
+                    <svg viewBox="0 0 20 20" fill="none"><line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.2"/><polyline points="10 4 16 10 10 16" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⑥ CONTACT -->
     <section class="contact" id="contact">
         <div class="container">
-            <div class="section-head">
-                <span class="section-num">04 / Contact</span>
-                <h2 class="section-title">
-                    <span>Let's create</span><br>
-                    <span class="italic">something new.</span>
+            <div class="section-label reveal-up">
+                <span class="label-num">06</span>
+                <span class="label-text">Contact</span>
+            </div>
+            <div class="contact-heading reveal-up">
+                <h2 class="section-heading">
+                    まず、あなたの<br>
+                    <em>想いを聴かせてください。</em>
                 </h2>
+                <p class="contact-sub">
+                    ご相談・ご依頼はフォームより承ります。<br>
+                    営業感はありません。まずは気軽にどうぞ。
+                </p>
             </div>
             <div class="contact-grid">
-                <div class="contact-info">
-                    <p class="contact-lead">
-                        ご相談・ご依頼は、<br>
-                        お気軽にお問い合わせください。
-                    </p>
+                <div class="contact-info reveal-up" style="--delay:0.1s">
                     <div class="contact-detail">
-                        <div class="detail-item">
+                        <div class="detail-row">
                             <span class="detail-label">EMAIL</span>
-                            <a href="mailto:contact@liberty.co.jp" class="detail-value">contact@liberty.co.jp</a>
+                            <a href="mailto:contact@liberty-official.jp" class="detail-value">contact@liberty-official.jp</a>
                         </div>
-                        <div class="detail-item">
+                        <div class="detail-row">
                             <span class="detail-label">LOCATION</span>
                             <span class="detail-value">Tokyo, Japan</span>
                         </div>
-                        <div class="detail-item">
+                        <div class="detail-row">
                             <span class="detail-label">FOLLOW</span>
-                            <div class="socials">
+                            <div class="contact-socials">
                                 <a href="#" aria-label="Instagram">Instagram</a>
                                 <a href="#" aria-label="X">X</a>
-                                <a href="#" aria-label="LinkedIn">LinkedIn</a>
                             </div>
                         </div>
                     </div>
+                    <p class="contact-promise">
+                        すべてのご連絡に、<br>
+                        誠実にお返しします。
+                    </p>
                 </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-row">
-                        <label>
-                            <span class="label-text">Name <em>*</em></span>
-                            <input type="text" name="name" required>
+                <form class="contact-form reveal-up" id="contactForm" style="--delay:0.2s">
+                    <div class="form-row-2">
+                        <label class="form-label">
+                            <span class="label-name">お名前 <em>*</em></span>
+                            <input type="text" name="name" required placeholder="山田 太郎">
                         </label>
-                        <label>
-                            <span class="label-text">Company</span>
-                            <input type="text" name="company">
+                        <label class="form-label">
+                            <span class="label-name">会社名・屋号</span>
+                            <input type="text" name="company" placeholder="任意">
                         </label>
                     </div>
-                    <label>
-                        <span class="label-text">Email <em>*</em></span>
-                        <input type="email" name="email" required>
+                    <label class="form-label">
+                        <span class="label-name">メールアドレス <em>*</em></span>
+                        <input type="email" name="email" required placeholder="your@email.com">
                     </label>
-                    <label>
-                        <span class="label-text">Subject</span>
+                    <label class="form-label">
+                        <span class="label-name">ご相談内容</span>
                         <select name="subject">
-                            <option value="sns">SNS運用代行について</option>
-                            <option value="ai">AIコンサルティングについて</option>
-                            <option value="dx">DX支援について</option>
-                            <option value="other">その他</option>
+                            <option value="">選択してください</option>
+                            <option value="sns">SNS運用について</option>
+                            <option value="video">ショート動画制作について</option>
+                            <option value="web">ホームページ制作について</option>
+                            <option value="design">デザイン制作について</option>
+                            <option value="ai">AI活用支援について</option>
+                            <option value="ops">業務効率化支援について</option>
+                            <option value="pricing">料金・プランについて</option>
+                            <option value="other">その他・まずは相談したい</option>
                         </select>
                     </label>
-                    <label>
-                        <span class="label-text">Message <em>*</em></span>
-                        <textarea name="message" rows="5" required></textarea>
+                    <label class="form-label">
+                        <span class="label-name">メッセージ <em>*</em></span>
+                        <textarea name="message" rows="5" required placeholder="気軽にご記入ください。"></textarea>
                     </label>
                     <button type="submit" class="form-submit">
-                        <span>Send Message</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <line x1="5" y1="12" x2="19" y2="12"/>
-                            <polyline points="12 5 19 12 12 19"/>
-                        </svg>
+                        <span class="submit-text">送信する</span>
+                        <svg viewBox="0 0 20 20" fill="none"><line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.2"/><polyline points="10 4 16 10 10 16" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
                     </button>
                 </form>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-top">
                 <div class="footer-brand">
-                    <a href="#" class="logo logo-footer">
-                        <span class="logo-mark">/</span>
-                        <span class="logo-text">liberty</span>
+                    <a href="index.html#top" class="logo logo--footer" aria-label="Liberty">
+                        <img src="%E7%94%BB%E5%83%8F.png" class="logo-icon" alt="">
                     </a>
-                    <p class="footer-tag">Beyond the Standard.</p>
+                    <p class="footer-tagline">やりたいを形に、<br>一歩を踏み出す勇気をあなたへ。</p>
                 </div>
-                <div class="footer-cols">
+                <nav class="footer-nav" aria-label="フッターナビゲーション">
                     <div class="footer-col">
-                        <span class="footer-col-title">Services</span>
+                        <span class="footer-col-title">Navigate</span>
                         <ul>
-                            <li><a href="#services">SNS運用代行</a></li>
-                            <li><a href="#services">AIコンサルティング</a></li>
-                            <li><a href="#services">DX支援</a></li>
+                            <li><a href="#concept">Concept</a></li>
+                            <li><a href="#service">Service</a></li>
+                            <li><a href="#results">実績</a></li>
+                            <li><a href="#pricing">料金</a></li>
+                            <li><a href="#vision">Vision</a></li>
                         </ul>
                     </div>
                     <div class="footer-col">
-                        <span class="footer-col-title">Company</span>
+                        <span class="footer-col-title">Service</span>
                         <ul>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#team">Team</a></li>
-                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="#service">SNS運用</a></li>
+                            <li><a href="#service">ショート動画制作</a></li>
+                            <li><a href="#service">ホームページ制作</a></li>
+                            <li><a href="#service">デザイン制作</a></li>
+                            <li><a href="#service">AI活用支援</a></li>
                         </ul>
                     </div>
                     <div class="footer-col">
-                        <span class="footer-col-title">Follow</span>
+                        <span class="footer-col-title">About</span>
                         <ul>
-                            <li><a href="#">Instagram</a></li>
-                            <li><a href="#">X (Twitter)</a></li>
-                            <li><a href="#">LinkedIn</a></li>
+                            <li><a href="philosophy.html">理念</a></li>
+                            <li><a href="message.html">Message</a></li>
+                            <li><a href="#members">Members</a></li>
+                            <li><a href="#contact">お問い合わせ</a></li>
+                            <li><a href="mailto:contact@liberty-official.jp">Email</a></li>
                         </ul>
                     </div>
-                </div>
+                </nav>
             </div>
             <div class="footer-bottom">
-                <span>© 2026 liberty Inc. All rights reserved.</span>
-                <span class="footer-mark">/ liberty</span>
+                <span class="footer-copy">© 2026 Liberty. All rights reserved.</span>
+                <span class="footer-mark">EST. 2026 — TOKYO</span>
             </div>
         </div>
     </footer>

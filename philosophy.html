@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>理念 | Liberty</title>
+    <meta name="description" content="Libertyの哲学・理念。私たちが大切にしている4つの柱と、その根底にある想いについて。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-inner">
+            <svg class="loader-logo" viewBox="0 0 60 60" fill="none">
+                <circle cx="30" cy="30" r="1.5" fill="#c9a66b"/>
+                <line x1="30" y1="4" x2="30" y2="56" stroke="#c9a66b" stroke-width="0.6" stroke-dasharray="52" stroke-dashoffset="52" class="loader-line-v"/>
+                <line x1="4" y1="30" x2="56" y2="30" stroke="#c9a66b" stroke-width="0.6" stroke-dasharray="52" stroke-dashoffset="52" class="loader-line-h"/>
+                <line x1="11.5" y1="11.5" x2="48.5" y2="48.5" stroke="#c9a66b" stroke-width="0.4" opacity="0.4" stroke-dasharray="52" stroke-dashoffset="52" class="loader-line-d1"/>
+                <line x1="48.5" y1="11.5" x2="11.5" y2="48.5" stroke="#c9a66b" stroke-width="0.4" opacity="0.4" stroke-dasharray="52" stroke-dashoffset="52" class="loader-line-d2"/>
+            </svg>
+            <span class="loader-text">Liberty</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html#top" class="logo" aria-label="Liberty">
+                <img src="%E7%94%BB%E5%83%8F.png" class="logo-icon" alt="">
+                <span class="logo-text">Liberty</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#concept" class="nav-link">コンセプト</a></li>
+                <li><a href="index.html#service" class="nav-link">サービス</a></li>
+                <li><a href="index.html#results" class="nav-link">実績</a></li>
+                <li><a href="index.html#pricing" class="nav-link">料金</a></li>
+                <li><a href="philosophy.html" class="nav-link" style="color:var(--gold-light)">理念</a></li>
+                <li><a href="message.html" class="nav-link">メッセージ</a></li>
+                <li><a href="index.html#contact" class="nav-link nav-link--cta">お問い合わせ</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle" aria-label="メニュー">
+                <span class="toggle-bar"></span>
+                <span class="toggle-bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="subpage-hero" id="top">
+        <canvas class="subpage-hero-canvas" id="subpageHeroCanvas"></canvas>
+        <div class="hero-deco hero-deco--ring1" aria-hidden="true"></div>
+        <div class="hero-deco hero-deco--ring2" aria-hidden="true"></div>
+        <div class="container subpage-hero-content">
+            <div class="subpage-eyebrow reveal-up" style="--delay:0.1s">
+                <span class="eyebrow-line"></span>
+                <span class="eyebrow-text">PHILOSOPHY — LIBERTY</span>
+            </div>
+            <h1 class="subpage-title reveal-up" style="--delay:0.3s">
+                私たちが<br>
+                <em>大切にすること。</em>
+            </h1>
+            <p class="subpage-lead reveal-up" style="--delay:0.5s">
+                Libertyの哲学と、4つの柱。<br>
+                すべての行動の根底にある、想いについて。
+            </p>
+            <a href="index.html" class="subpage-back reveal-up" style="--delay:0.7s">
+                <svg viewBox="0 0 20 20" fill="none"><line x1="16" y1="10" x2="4" y2="10" stroke="currentColor" stroke-width="1.2"/><polyline points="10 4 4 10 10 16" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+                トップへ戻る
+            </a>
+        </div>
+    </section>
+
+    <!-- In-page nav -->
+    <nav class="subpage-nav" aria-label="ページ内ナビゲーション">
+        <div class="subpage-nav-inner">
+            <a href="#philosophy-core" class="subpage-nav-link active">理念</a>
+            <a href="#philosophy-pillars" class="subpage-nav-link">4つの柱</a>
+            <a href="#philosophy-promise" class="subpage-nav-link">私たちの約束</a>
+            <a href="#philosophy-cta" class="subpage-nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Core Philosophy -->
+    <section class="philosophy" id="philosophy-core" style="background:var(--black);">
+        <div class="philosophy-bg"></div>
+        <div class="container philosophy-content">
+            <div class="section-label reveal-up">
+                <span class="label-num">01</span>
+                <span class="label-text">Core Philosophy</span>
+            </div>
+            <div class="philosophy-grid">
+                <div class="philosophy-quote-block reveal-up">
+                    <span class="quote-mark">"</span>
+                    <blockquote class="philosophy-quote">
+                        やりたいを形に。<br>
+                        <em>一歩を踏み出す勇気を、あなたへ。</em>
+                    </blockquote>
+                    <p class="quote-en">Turn your vision into reality.<br>The courage to take the first step.</p>
+                </div>
+                <div class="philosophy-pillars">
+                    <div class="pillar reveal-up" style="--delay:0.1s">
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="1" fill="#c9a66b"/>
+                                <circle cx="8" cy="10" r="1" fill="#8fa0b3" opacity="0.6"/>
+                                <circle cx="24" cy="10" r="1" fill="#8fa0b3" opacity="0.6"/>
+                                <circle cx="8" cy="22" r="1" fill="#8fa0b3" opacity="0.6"/>
+                                <circle cx="24" cy="22" r="1" fill="#8fa0b3" opacity="0.6"/>
+                                <line x1="16" y1="16" x2="8" y2="10" stroke="#c9a66b" stroke-width="0.6" opacity="0.5"/>
+                                <line x1="16" y1="16" x2="24" y2="10" stroke="#c9a66b" stroke-width="0.6" opacity="0.5"/>
+                                <line x1="16" y1="16" x2="8" y2="22" stroke="#c9a66b" stroke-width="0.6" opacity="0.5"/>
+                                <line x1="16" y1="16" x2="24" y2="22" stroke="#c9a66b" stroke-width="0.6" opacity="0.5"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-title">繋がりから生まれる力</h3>
+                        <p class="pillar-body">一人では届かない場所へ、繋がりが連れて行く。出会いの数だけ、可能性は広がる。</p>
+                    </div>
+                    <div class="pillar reveal-up" style="--delay:0.2s">
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 32 32" fill="none">
+                                <path d="M16 4 L28 28 L4 28 Z" stroke="#c9a66b" stroke-width="0.7" fill="none" opacity="0.6"/>
+                                <circle cx="16" cy="12" r="1.2" fill="#c9a66b"/>
+                                <line x1="16" y1="14" x2="16" y2="24" stroke="#c9a66b" stroke-width="0.6" opacity="0.4"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-title">挑戦を肯定する</h3>
+                        <p class="pillar-body">失敗を恐れるより、踏み出さないことを恐れる。その一歩に、私たちは寄り添う。</p>
+                    </div>
+                    <div class="pillar reveal-up" style="--delay:0.3s">
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 32 32" fill="none">
+                                <rect x="8" y="8" width="16" height="16" stroke="#c9a66b" stroke-width="0.7" fill="none" opacity="0.5"/>
+                                <rect x="12" y="12" width="8" height="8" fill="#c9a66b" opacity="0.2"/>
+                                <circle cx="16" cy="16" r="1.5" fill="#c9a66b"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-title">想いを丁寧に形に</h3>
+                        <p class="pillar-body">言葉にならない想いも、丁寧に聴く。それを形にすることが、私たちの仕事だ。</p>
+                    </div>
+                    <div class="pillar reveal-up" style="--delay:0.4s">
+                        <div class="pillar-icon">
+                            <svg viewBox="0 0 32 32" fill="none">
+                                <line x1="16" y1="4" x2="16" y2="28" stroke="#c9a66b" stroke-width="0.6" opacity="0.3"/>
+                                <line x1="4" y1="16" x2="28" y2="16" stroke="#c9a66b" stroke-width="0.6" opacity="0.3"/>
+                                <circle cx="16" cy="16" r="7" stroke="#c9a66b" stroke-width="0.7" fill="none" opacity="0.5"/>
+                                <circle cx="16" cy="16" r="2" fill="#c9a66b"/>
+                            </svg>
+                        </div>
+                        <h3 class="pillar-title">信頼を積み重ねる</h3>
+                        <p class="pillar-body">華やかな言葉より、誠実な行動を。信頼は、毎日の積み重ねでしか生まれない。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4 Pillars -->
+    <section id="philosophy-pillars" style="padding:var(--section-v) 0;background:var(--black-soft);">
+        <div class="orb orb--gold" style="top:0;right:-10%;width:600px;height:600px;opacity:0.05;" aria-hidden="true"></div>
+        <div class="container" style="position:relative;z-index:1;">
+            <div class="section-label reveal-up">
+                <span class="label-num">02</span>
+                <span class="label-text">4 Pillars</span>
+            </div>
+            <h2 class="section-heading reveal-up" style="margin-bottom:clamp(48px,7vw,80px);">
+                Libertyを支える、<br>
+                <em>4つの柱。</em>
+            </h2>
+            <div class="phil-pillars">
+                <div class="phil-pillar reveal-up" style="--delay:0.1s">
+                    <div class="phil-pillar-num">01</div>
+                    <div class="phil-pillar-icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="3" fill="#c9a66b"/>
+                            <circle cx="8" cy="14" r="2" fill="#8fa0b3" opacity="0.5"/>
+                            <circle cx="40" cy="14" r="2" fill="#8fa0b3" opacity="0.5"/>
+                            <circle cx="8" cy="34" r="2" fill="#8fa0b3" opacity="0.5"/>
+                            <circle cx="40" cy="34" r="2" fill="#8fa0b3" opacity="0.5"/>
+                            <line x1="24" y1="24" x2="8" y2="14" stroke="#c9a66b" stroke-width="0.8" opacity="0.6"/>
+                            <line x1="24" y1="24" x2="40" y2="14" stroke="#c9a66b" stroke-width="0.8" opacity="0.6"/>
+                            <line x1="24" y1="24" x2="8" y2="34" stroke="#c9a66b" stroke-width="0.8" opacity="0.6"/>
+                            <line x1="24" y1="24" x2="40" y2="34" stroke="#c9a66b" stroke-width="0.8" opacity="0.6"/>
+                            <circle cx="24" cy="24" r="12" stroke="rgba(201,166,107,0.15)" stroke-width="1" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3 class="phil-pillar-title">繋がりから生まれる力</h3>
+                    <p class="phil-pillar-body">
+                        人は一人では生きられない。<br>
+                        出会いが世界を広げ、繋がりが可能性を開く。<br>
+                        Libertyはその「繋がり」を最大限に活かし、<br>
+                        ひとりひとりの力を何倍にも引き出す。
+                    </p>
+                </div>
+                <div class="phil-pillar reveal-up" style="--delay:0.2s">
+                    <div class="phil-pillar-num">02</div>
+                    <div class="phil-pillar-icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <path d="M24 6 L42 42 L6 42 Z" stroke="#c9a66b" stroke-width="1" fill="none" opacity="0.5"/>
+                            <circle cx="24" cy="20" r="2.5" fill="#c9a66b"/>
+                            <line x1="24" y1="23" x2="24" y2="38" stroke="#c9a66b" stroke-width="0.8" opacity="0.4"/>
+                        </svg>
+                    </div>
+                    <h3 class="phil-pillar-title">挑戦を肯定する</h3>
+                    <p class="phil-pillar-body">
+                        「失敗するかも」という恐れは、誰にでもある。<br>
+                        それでも一歩踏み出そうとする人を、<br>
+                        私たちは全力で応援する。<br>
+                        挑戦しない後悔より、挑戦した経験を。
+                    </p>
+                </div>
+                <div class="phil-pillar reveal-up" style="--delay:0.3s">
+                    <div class="phil-pillar-num">03</div>
+                    <div class="phil-pillar-icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <rect x="10" y="10" width="28" height="28" stroke="#c9a66b" stroke-width="1" fill="none" opacity="0.4"/>
+                            <rect x="17" y="17" width="14" height="14" fill="#c9a66b" opacity="0.1"/>
+                            <circle cx="24" cy="24" r="3.5" fill="#c9a66b" opacity="0.8"/>
+                        </svg>
+                    </div>
+                    <h3 class="phil-pillar-title">想いを丁寧に形に</h3>
+                    <p class="phil-pillar-body">
+                        「何を伝えたいか」「どう届けたいか」<br>
+                        その想いを、まず丁寧に聴く。<br>
+                        言葉にならない想いも汲み取り、<br>
+                        最適な形として世界に届ける。
+                    </p>
+                </div>
+                <div class="phil-pillar reveal-up" style="--delay:0.4s">
+                    <div class="phil-pillar-num">04</div>
+                    <div class="phil-pillar-icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="16" stroke="#c9a66b" stroke-width="1" fill="none" opacity="0.4"/>
+                            <circle cx="24" cy="24" r="9" stroke="#c9a66b" stroke-width="0.7" fill="none" opacity="0.3"/>
+                            <circle cx="24" cy="24" r="3.5" fill="#c9a66b" opacity="0.7"/>
+                            <line x1="24" y1="8" x2="24" y2="15" stroke="#c9a66b" stroke-width="0.7" opacity="0.4"/>
+                            <line x1="24" y1="33" x2="24" y2="40" stroke="#c9a66b" stroke-width="0.7" opacity="0.4"/>
+                            <line x1="8" y1="24" x2="15" y2="24" stroke="#c9a66b" stroke-width="0.7" opacity="0.4"/>
+                            <line x1="33" y1="24" x2="40" y2="24" stroke="#c9a66b" stroke-width="0.7" opacity="0.4"/>
+                        </svg>
+                    </div>
+                    <h3 class="phil-pillar-title">信頼を積み重ねる</h3>
+                    <p class="phil-pillar-body">
+                        信頼は、一日では築けない。<br>
+                        誠実な対応、約束を守ること、<br>
+                        小さな行動の積み重ねが、<br>
+                        揺るぎない関係を生み出す。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promise -->
+    <section id="philosophy-promise" style="padding:var(--section-v) 0;background:var(--black);">
+        <div class="container">
+            <div class="section-label reveal-up">
+                <span class="label-num">03</span>
+                <span class="label-text">Our Promise</span>
+            </div>
+            <div class="message-body reveal-up" style="max-width:680px;">
+                <p class="message-opening">
+                    私たちは、あなたの挑戦を<br>
+                    決して一人にさせない。
+                </p>
+                <p>
+                    Libertyというブランド名には、<br>
+                    「縛られない自由」ではなく、<br>
+                    「自分らしく生きる勇気」という意味を込めた。
+                </p>
+                <p>
+                    SNSもWEBも、AIも、ツールに過ぎない。<br>
+                    大切なのは、<em>それを使って何を実現するか</em>だ。
+                </p>
+                <p>
+                    私たちはその「何を」を一緒に考え、<br>
+                    形にし、世界に届けるパートナーでありたい。
+                </p>
+                <p>
+                    あなたの挑戦が、誰かの勇気になる。<br>
+                    そう信じて、私たちは動き続ける。
+                </p>
+                <span class="message-sign">Liberty</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="subpage-cta" id="philosophy-cta">
+        <div class="container">
+            <h2 class="reveal-up">想いを、形にしましょう。</h2>
+            <p class="reveal-up">まずは気軽にご相談ください。</p>
+            <div class="reveal-up" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+                <a href="index.html#contact" class="btn btn--gold">
+                    <span>相談してみる</span>
+                    <svg viewBox="0 0 20 20" fill="none"><line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.2"/><polyline points="10 4 16 10 10 16" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+                </a>
+                <a href="message.html" class="btn btn--ghost">
+                    <span>Messageを読む</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="index.html#top" class="logo logo--footer" aria-label="Liberty">
+                        <img src="%E7%94%BB%E5%83%8F.png" class="logo-icon" alt="">
+                    </a>
+                    <p class="footer-tagline">やりたいを形に、<br>一歩を踏み出す勇気をあなたへ。</p>
+                </div>
+                <nav class="footer-nav" aria-label="フッターナビゲーション">
+                    <div class="footer-col">
+                        <span class="footer-col-title">Navigate</span>
+                        <ul>
+                            <li><a href="index.html#concept">Concept</a></li>
+                            <li><a href="index.html#service">Service</a></li>
+                            <li><a href="index.html#results">実績</a></li>
+                            <li><a href="index.html#pricing">料金</a></li>
+                            <li><a href="index.html#vision">Vision</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <span class="footer-col-title">About</span>
+                        <ul>
+                            <li><a href="philosophy.html" style="color:var(--gold-light)">理念</a></li>
+                            <li><a href="message.html">Message</a></li>
+                            <li><a href="index.html#members">Members</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <span class="footer-col-title">Contact</span>
+                        <ul>
+                            <li><a href="index.html#contact">お問い合わせ</a></li>
+                            <li><a href="mailto:contact@liberty-official.jp">Email</a></li>
+                            <li><a href="#">Instagram</a></li>
+                            <li><a href="#">X (Twitter)</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-copy">© 2026 Liberty. All rights reserved.</span>
+                <span class="footer-mark">EST. 2026 — TOKYO</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
